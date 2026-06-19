@@ -1,0 +1,400 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koowa Poojan Invitation - Pravir Sharma</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        babyBlue: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        cream: {
+                            50: '#fffdf7',
+                            100: '#fef9c3',
+                        },
+                        gold: {
+                            light: '#fde68a',
+                            DEFAULT: '#d97706',
+                            dark: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        dancing: ['"Dancing Script"', 'cursive'],
+                        poppins: ['"Poppins"', 'sans-serif'],
+                        nunito: ['"Nunito"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'cloud-slow': 'drift 40s linear infinite',
+                        'cloud-fast': 'drift 25s linear infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'spin-slow': 'spin 15s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        drift: {
+                            '0%': { transform: 'translateX(-10%)' },
+                            '100%': { transform: 'translateX(110vw)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(217, 119, 6, 0.4)' },
+                            '50%': { boxShadow: '0 0 30px rgba(217, 119, 6, 0.8)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f0f9ff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(202,100%,94%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 100%, hsla(47,100%,94%,1) 0, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            color: #0c4a6e;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(12, 74, 110, 0.1);
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .svg-accent path {
+            fill: #d97706;
+            opacity: 0.8;
+        }
+        
+        /* Pattern Overlay */
+        .pattern-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bae6fd' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-poppins antialiased selection:bg-babyBlue-200 selection:text-babyBlue-900 relative">
+
+    <!-- Background Elements -->
+    <div class="pattern-overlay fixed"></div>
+    
+    <!-- Floating Clouds -->
+    <div class="fixed top-20 -left-20 w-32 h-16 opacity-40 animate-cloud-slow pointer-events-none z-0">
+        <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 19c-2.48 0-4.5-2.02-4.5-4.5 0-.25.02-.5.06-.74-1.25-.43-2.14-1.6-2.14-3.01 0-1.75 1.42-3.17 3.17-3.17.48 0 .93.11 1.34.3C15.84 5.92 17.55 4.5 19.5 4.5 21.98 4.5 24 6.52 24 9c0 1.25-.51 2.38-1.34 3.2.03.24.04.49.04.74 0 2.54-2.06 4.6-4.6 4.6l-.6.46zM6.5 19C2.92 19 0 16.08 0 12.5S2.92 6 6.5 6c1.37 0 2.64.43 3.69 1.16C11.59 4.7 14.12 3 17 3c3.86 0 7 3.14 7 7 0 .54-.06 1.07-.18 1.58C24.78 12.44 25.5 13.63 25.5 15c0 1.93-1.57 3.5-3.5 3.5h-15.5z" opacity=".8"/></svg>
+    </div>
+    <div class="fixed top-64 -left-40 w-48 h-24 opacity-30 animate-cloud-fast pointer-events-none z-0" style="animation-delay: -10s;">
+        <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 19C2.92 19 0 16.08 0 12.5S2.92 6 6.5 6c1.37 0 2.64.43 3.69 1.16C11.59 4.7 14.12 3 17 3c3.86 0 7 3.14 7 7 0 .54-.06 1.07-.18 1.58C24.78 12.44 25.5 13.63 25.5 15c0 1.93-1.57 3.5-3.5 3.5h-15.5z"/></svg>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <header class="relative min-h-[100svh] flex flex-col items-center justify-center text-center px-4 pt-10 pb-20 overflow-hidden">
+        <!-- Floating Moon & Stars -->
+        <div class="absolute top-10 right-10 md:top-20 md:right-32 w-16 md:w-24 animate-float opacity-80">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="#FDE68A"/>
+            </svg>
+        </div>
+        <div class="absolute top-32 left-10 md:top-40 md:left-40 w-8 md:w-12 animate-float-delayed opacity-70">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="#FDE68A"/>
+            </svg>
+        </div>
+
+        <div class="z-10 max-w-3xl mx-auto flex flex-col items-center mt-10">
+            <!-- Top Traditional Element -->
+            <div class="mb-4 text-gold opacity-90 w-16">
+                <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 5C45 5 40 10 40 15C40 20 45 25 50 25C55 25 60 20 60 15C60 10 55 5 50 5ZM30 30C20 30 15 40 15 50C15 70 50 95 50 95C50 95 85 70 85 50C85 40 80 30 70 30C62 30 55 35 50 40C45 35 38 30 30 30Z"/>
+                </svg>
+            </div>
+            
+            <h3 class="font-poppins uppercase tracking-[0.2em] text-sm md:text-md font-semibold text-babyBlue-800 mb-2">You are invited to the</h3>
+            <h1 class="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-gradient mb-6 leading-tight pb-2">
+                Koowa Poojan <br><span class="text-3xl md:text-5xl font-dancing text-gold block mt-2">Ceremony</span>
+            </h1>
+
+            <div class="relative w-full flex justify-center items-center my-8">
+                <div class="absolute h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent w-full opacity-50"></div>
+                <div class="bg-[#f0f9ff] px-6 z-10">
+                    <p class="font-dancing text-5xl md:text-7xl font-bold gold-gradient pb-2 px-2 drop-shadow-sm">
+                        Pravir Sharma
+                    </p>
+                </div>
+            </div>
+
+            <p class="font-playfair italic text-lg md:text-xl text-babyBlue-900 max-w-lg mb-8 leading-relaxed px-4">
+                "With immense joy and blessings, we invite you to celebrate the auspicious Koowa Poojan ceremony of our beloved baby boy."
+            </p>
+
+            <div class="inline-block glass-card rounded-full px-8 py-3 shadow-lg shadow-babyBlue-200/50 transform transition hover:scale-105">
+                <p class="font-poppins font-semibold text-xl text-babyBlue-900 tracking-wider">
+                    28 <span class="text-gold px-1">•</span> MAY <span class="text-gold px-1">•</span> 2026
+                </p>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="mt-16 animate-bounce text-babyBlue-800 opacity-60">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- 5. Blessings / Invitation Message Section -->
+    <section class="py-16 px-4 relative z-10 reveal">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="w-12 h-12 mx-auto mb-6 opacity-60">
+                <!-- Tiny footprints SVG -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 55C35 68.8071 30.5228 80 25 80C19.4772 80 15 68.8071 15 55C15 41.1929 19.4772 30 25 30C30.5228 30 35 41.1929 35 55Z" fill="#1E3A8A" opacity="0.3"/>
+                    <path d="M85 45C85 58.8071 80.5228 70 75 70C69.4772 70 65 58.8071 65 45C65 31.1929 69.4772 20 75 20C80.5228 20 85 31.1929 85 45Z" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="20" cy="20" r="4" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="30" cy="15" r="5" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="40" cy="18" r="4" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="45" cy="25" r="3" fill="#1E3A8A" opacity="0.3"/>
+                    
+                    <circle cx="60" cy="15" r="3" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="68" cy="10" r="4" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="78" cy="8" r="5" fill="#1E3A8A" opacity="0.3"/>
+                    <circle cx="88" cy="12" r="4" fill="#1E3A8A" opacity="0.3"/>
+                </svg>
+            </div>
+            <p class="font-playfair text-xl md:text-2xl leading-relaxed text-babyBlue-900">
+                आपकी उपस्थिति और आशीर्वाद हमारे नन्हे <span class="font-dancing font-bold text-3xl gold-gradient mx-1">Pravir Sharma</span> के लिए बहुत अनमोल हैं। कृपया पधारकर इस शुभ अवसर की शोभा बढ़ाएं।
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Family Section -->
+    <section class="py-16 px-4 relative z-10 reveal">
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative corners -->
+            <div class="absolute top-0 left-0 w-24 h-24 opacity-20 pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0V100C0 100 0 50 50 50C100 50 100 0 100 0H0Z" fill="#D97706"/></svg>
+            </div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 opacity-20 pointer-events-none transform rotate-180">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0V100C0 100 0 50 50 50C100 50 100 0 100 0H0Z" fill="#D97706"/></svg>
+            </div>
+
+            <div class="text-center mb-10">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-babyBlue-900 mb-2">Our Loving Family</h2>
+                <div class="h-1 w-20 bg-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center">
+                <!-- Parents -->
+                <div class="space-y-4">
+                    <p class="font-poppins text-sm uppercase tracking-widest text-babyBlue-800 font-semibold">Proud Parents</p>
+                    <p class="font-dancing text-4xl text-babyBlue-900 font-bold">Aman Sharma</p>
+                    <p class="font-playfair italic text-gold text-lg">&</p>
+                    <p class="font-dancing text-4xl text-babyBlue-900 font-bold">Komal</p>
+                </div>
+                <!-- Grandparents -->
+                <div class="space-y-4">
+                    <p class="font-poppins text-sm uppercase tracking-widest text-babyBlue-800 font-semibold">Blessings From</p>
+                    <p class="font-dancing text-4xl text-babyBlue-900 font-bold">Suresh Kumar</p>
+                    <p class="font-playfair italic text-gold text-lg">&</p>
+                    <p class="font-dancing text-4xl text-babyBlue-900 font-bold">Usha Devi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Kid Message Section -->
+    <section class="py-16 px-4 relative z-10 reveal">
+        <div class="max-w-2xl mx-auto">
+            <!-- Notepad/Cloud style card -->
+            <div class="bg-cream-100 rounded-3xl p-8 md:p-12 shadow-xl shadow-yellow-100/50 border-2 border-dashed border-gold-light relative transform rotate-1 hover:rotate-0 transition duration-500">
+                
+                <!-- Toy SVG Decoration -->
+                <div class="absolute -top-6 -right-6 w-16 h-16 bg-white rounded-full shadow-lg p-2 flex items-center justify-center animate-bounce" style="animation-duration: 3s;">
+                    <svg viewBox="0 0 24 24" fill="#FCD34D" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v4h-2zm0 6h2v2h-2z"/>
+                    </svg>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="font-nunito font-bold text-2xl md:text-3xl text-babyBlue-800 mb-6 flex items-center justify-center gap-2">
+                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                        A Sweet Message
+                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                    </h2>
+                    
+                    <p class="font-nunito text-xl md:text-2xl leading-relaxed text-gray-700 font-semibold mb-8">
+                        "Mere bhatije Pravir Sharma ke Koowa Poojan me jalul jalul aana."
+                    </p>
+                    
+                    <p class="font-dancing text-3xl text-gold-dark font-bold">
+                        — Raman Sharma
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Gallery / Decorative Section -->
+    <section class="py-10 px-4 relative z-10 reveal overflow-hidden">
+        <div class="max-w-5xl mx-auto flex justify-center items-center gap-8 md:gap-16 opacity-80">
+            <!-- Baby Cradle SVG -->
+            <div class="w-24 md:w-32 animate-float">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 54C44.1503 54 54 44.1503 54 32C54 19.8497 44.1503 10 32 10C19.8497 10 10 19.8497 10 32C10 44.1503 19.8497 54 32 54Z" stroke="#0C4A6E" stroke-width="2"/>
+                    <path d="M10 32H54" stroke="#0C4A6E" stroke-width="2"/>
+                    <path d="M20 32V20M44 32V20" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M32 54V60M24 60H40" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M22 42C22 42 27 46 32 46C37 46 42 42 42 42" stroke="#D97706" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <!-- Elephant Toy SVG -->
+            <div class="w-20 md:w-28 animate-float-delayed">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48 38C48 38 52 38 54 34C56 30 54 26 50 24C46 22 36 22 32 26" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 26C32 26 24 20 16 26C8 32 12 42 12 42V52H20V42" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36 42V52H44V42" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M44 42C44 42 48 42 48 38" stroke="#0C4A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="30" r="2" fill="#D97706"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Event Details Section -->
+    <section class="py-16 px-4 relative z-10 reveal">
+        <div class="max-w-3xl mx-auto glass-card rounded-3xl p-8 md:p-12 text-center shadow-xl border border-white">
+            <h2 class="font-playfair text-3xl md:text-4xl font-bold text-babyBlue-900 mb-8">Event Details</h2>
+            
+            <div class="space-y-8">
+                <!-- Ceremony & Date -->
+                <div>
+                    <h3 class="font-poppins text-lg text-gold font-semibold tracking-widest uppercase mb-1">Ceremony</h3>
+                    <p class="font-playfair text-2xl md:text-3xl font-bold text-babyBlue-900 mb-4">Koowa Poojan</p>
+                    
+                    <div class="flex items-center justify-center gap-3 text-babyBlue-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class="font-poppins text-lg md:text-xl font-medium">Thursday, 28 May 2026</p>
+                    </div>
+                </div>
+
+                <div class="w-16 h-[1px] bg-babyBlue-200 mx-auto"></div>
+
+                <!-- Venue -->
+                <div>
+                    <h3 class="font-poppins text-lg text-gold font-semibold tracking-widest uppercase mb-3">Venue</h3>
+                    <div class="flex flex-col items-center justify-center gap-2 text-babyBlue-800">
+                        <svg class="w-8 h-8 text-gold mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <p class="font-poppins text-lg md:text-xl font-medium max-w-sm">
+                            Village Sanch, near Shiv Mandir,<br>Pundri, Kaithal,<br>Haryana – 136042
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Map Button -->
+                <div class="pt-6">
+                    <a href="https://maps.app.goo.gl/tEYkYgvCPwMjynYS6?g_st=ic" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-babyBlue-800 to-babyBlue-900 text-white px-8 py-4 rounded-full font-poppins font-medium shadow-lg hover:shadow-xl hover:from-babyBlue-900 hover:to-babyBlue-900 transform hover:-translate-y-1 transition duration-300 animate-pulse-glow group">
+                        <svg class="w-6 h-6 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        Open Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="py-12 relative z-10 text-center reveal">
+        <div class="max-w-lg mx-auto">
+            <div class="w-16 h-16 mx-auto mb-4 opacity-50 animate-spin-slow">
+                <!-- Simple sun/mandala SVG -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 0L55 35L90 10L65 45L100 50L65 55L90 90L55 65L50 100L45 65L10 90L35 55L0 50L35 45L10 10L45 35L50 0Z" fill="#D97706"/>
+                </svg>
+            </div>
+            
+            <p class="font-poppins text-sm text-babyBlue-800 uppercase tracking-widest mb-2">With love & joy</p>
+            <h3 class="font-dancing text-4xl md:text-5xl font-bold text-babyBlue-900 drop-shadow-sm">
+                Sharma Family
+            </h3>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- Scroll Reveal Animation ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100; // Trigger point
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add("active");
+                    }
+                });
+            };
+
+            // Initial check
+            revealOnScroll();
+
+            // Check on scroll
+            window.addEventListener("scroll", revealOnScroll);
+        });
+    </script>
+</body>
+</html>
+
+
+
+```
